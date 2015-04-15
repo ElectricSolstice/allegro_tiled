@@ -195,7 +195,7 @@ char *al_get_tile_property(ALLEGRO_MAP_TILE *tile, char *name, char *def)
 /*
  * Get a property from an object.
  */
-char *al_get_object_property(ALLEGRO_MAP_OBJECT *object, char *name, char *def)
+const char *al_get_object_property(ALLEGRO_MAP_OBJECT *object, const char *name, const char *def)
 {
 	if (object) {
 		char *value = g_hash_table_lookup(object->properties, name);

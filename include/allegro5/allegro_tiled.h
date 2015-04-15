@@ -55,7 +55,7 @@ ALLEGRO_MAP_TILE **al_get_tiles(ALLEGRO_MAP *map, int x, int y, int *length);
 ALLEGRO_MAP_OBJECT **al_get_objects(ALLEGRO_MAP_LAYER *layer, int *length);
 ALLEGRO_MAP_OBJECT **al_get_objects_for_name(ALLEGRO_MAP_LAYER *layer, char *name, int *length);
 char *al_get_tile_property(ALLEGRO_MAP_TILE *tile, char *name, char *def);
-char *al_get_object_property(ALLEGRO_MAP_OBJECT *object, char *name, char *def);
+const char *al_get_object_property(ALLEGRO_MAP_OBJECT *object, const char *name, const char *def);
 int al_get_object_x(ALLEGRO_MAP_OBJECT *object);
 int al_get_object_y(ALLEGRO_MAP_OBJECT *object);
 void al_get_object_pos(ALLEGRO_MAP_OBJECT *object, int *x, int *y);
