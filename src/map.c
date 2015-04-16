@@ -62,6 +62,30 @@ ALLEGRO_MAP_TILE *al_get_single_tile(ALLEGRO_MAP *map, ALLEGRO_MAP_LAYER *layer,
 }
 
 /*
+ * Get a list of the tiles in the given tile layer.
+ * Note: this list is NOT null-terminated. NULL in this case signals
+ * the lack of a tile, not the end of the list. To iterate over
+ * the list, use the value stored in length instead.
+ *
+ * This list is a shallow copy and must be freed when it's no longer
+ * needed.
+ */
+ALLEGRO_MAP_TILE **al_get_layer_tiles(ALLEGRO_MAP *map,ALLEGRO_MAP_LAYER *layer,int *length)
+{
+	ALLEGRO_MAP_TILE **results = (ALLEGRO_MAP_TILE**)al_malloc(sizeof(ALLEGRO_MAP_TILE*) * (map->tile_layer_count));
+
+	int i;
+	for (i = 0; i<map->tile_layer_count; i++) {
+		results[i] = al_get_tile_for_id(map,(layer->data[i] & ~(FLIPPED_HORIZONTALLY_FLAG
+			|FLIPPED_VERTICALLY_FLAG
+			|FLIPPED_DIAGONALLY_FLAG)));
+	}
+	(*length) = map->tile_layer_count;
+	return results;
+}
+
+
+/*
  * Get a list of tiles at the given location, one per layer.
  * Note: this list is NOT null-terminated. NULL in this case signals
  * the lack of a tile, not the end of the list. To iterate over

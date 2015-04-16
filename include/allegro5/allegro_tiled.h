@@ -52,6 +52,7 @@ ALLEGRO_MAP_TILE *al_get_tile_for_id(ALLEGRO_MAP *map, char id);
 char al_get_single_tile_id(ALLEGRO_MAP_LAYER *layer, int x, int y);
 ALLEGRO_MAP_TILE *al_get_single_tile(ALLEGRO_MAP *map, ALLEGRO_MAP_LAYER *layer, int x, int y);
 ALLEGRO_MAP_TILE **al_get_tiles(ALLEGRO_MAP *map, int x, int y, int *length);
+ALLEGRO_MAP_TILE **al_get_layer_tiles(ALLEGRO_MAP *map, ALLEGRO_MAP_LAYER *layer, int *length);
 ALLEGRO_MAP_OBJECT **al_get_objects(ALLEGRO_MAP_LAYER *layer, int *length);
 ALLEGRO_MAP_OBJECT **al_get_objects_for_name(ALLEGRO_MAP_LAYER *layer, char *name, int *length);
 char *al_get_tile_property(ALLEGRO_MAP_TILE *tile, char *name, char *def);
